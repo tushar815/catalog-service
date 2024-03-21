@@ -6,6 +6,7 @@ server:
     threads:
       max: 50
       min-spare: 5
+  shutdown: graceful
 
 spring:
   application:
@@ -30,8 +31,8 @@ spring:
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 5
-  jpa:
-    show-sql: true
+  lifecycle:
+    timeout-per-shutdown-phase: 15s #Grace period
 
 polar:
   greeting: Welcome to the local book catalog!!
